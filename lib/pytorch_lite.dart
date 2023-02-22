@@ -394,10 +394,15 @@ class ModelObjectDetection {
                   Container(
                     height: 20,
                     alignment: Alignment.centerRight,
-                    color: usedColor,
-                    child: Text(
-                      "${re.className ?? re.classIndex.toString()}_${showPercentage ? "${(re.score * 100).toStringAsFixed(2)}%" : ""}",
-                      style: const TextStyle(color: Colors.white),
+                    color: Colors.black,
+                    child: Container(
+                      height: 20,
+                      alignment: Alignment.centerRight,
+                      color: usedColor,
+                      child: Text(
+                        "${re.className ?? re.classIndex.toString()}_${showPercentage ? "${(re.score * 100).toStringAsFixed(2)}%" : ""}",
+                        style: const TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                   Container(
