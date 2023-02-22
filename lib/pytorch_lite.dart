@@ -370,12 +370,12 @@ class ModelObjectDetection {
               usedColor = boxesColor;
             }
 
-            print({
-              "left": re.rect.left.toDouble() * factorX,
-              "top": re.rect.top.toDouble() * factorY,
-              "width": re.rect.width.toDouble() * factorX,
-              "height": re.rect.height.toDouble() * factorY,
-            });
+            // print({
+            //   "left": re.rect.left.toDouble() * factorX,
+            //   "top": re.rect.top.toDouble() * factorY,
+            //   "width": re.rect.width.toDouble() * factorX,
+            //   "height": re.rect.height.toDouble() * factorY,
+            // });
             return Positioned(
               left: re.rect.left * factorX,
               top: re.rect.top * factorY - 20,
@@ -396,18 +396,26 @@ class ModelObjectDetection {
                     alignment: Alignment.centerRight,
                     color: usedColor,
                     child: Text(
-                      "${re.className ?? re.classIndex.toString()}_${showPercentage
-                              ? "${(re.score * 100).toStringAsFixed(2)}%"
-                              : ""}",
+                      "${re.className ?? re.classIndex.toString()}_${showPercentage ? "${(re.score * 100).toStringAsFixed(2)}%" : ""}",
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                   Container(
-                    width: re.rect.width.toDouble() * factorX,
-                    height: re.rect.height.toDouble() * factorY,
+                    width: re.rect.width.toDouble() * factorX + 5,
+                    height: re.rect.height.toDouble() * factorY + 5,
                     decoration: BoxDecoration(
-                        border: Border.all(color: usedColor, width: 3),
-                        borderRadius: const BorderRadius.all(Radius.circular(2))),
-                    child: Container(),
+                        border: Border.all(color: Colors.black, width: 4),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(2))),
+                    child: Container(
+                      width: re.rect.width.toDouble() * factorX,
+                      height: re.rect.height.toDouble() * factorY,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: usedColor, width: 4),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(2))),
+                      child: Container(),
+                    ),
                   ),
                 ],
               ),
