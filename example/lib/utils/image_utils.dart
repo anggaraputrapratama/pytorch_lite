@@ -97,7 +97,7 @@ class ImageUtils {
 
   static void saveImage(imageLib.Image image, [int i = 0]) async {
     List<int> jpeg = imageLib.JpegEncoder().encode(image);
-    final appDir = await getTemporaryDirectory();
+    final appDir = await getApplicationDocumentsDirectory();
     final appPath = appDir.path;
     final fileOnDevice = File('$appPath/out$i.jpg');
     await fileOnDevice.writeAsBytes(jpeg, flush: true);

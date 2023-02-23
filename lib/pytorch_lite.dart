@@ -392,9 +392,9 @@ class ModelObjectDetection {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 20,
-                    alignment: Alignment.centerRight,
-                    color: Colors.black,
+                    decoration: const BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.all(Radius.circular(2))),
                     child: Container(
                       height: 20,
                       alignment: Alignment.centerRight,
